@@ -5,8 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profiles</title>
+    <style>
+        .card{
+            width: 250px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 6px;
+            margin: 30px;
+        }
+        .card img{
+            margin: 0 auto;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     Profiles
+    <%locals.profiles.forEach(profile=>{%>
+    <div class="card">
+        <img src="" alt="" min-width="200px">
+        <p><%=profile.fullName%></p>
+        <p><%=profile.email%></p>
+        <p>bio</p>
+    </div>
+    <%})%>
 </body>
 </html>
