@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Manager</title>
+    <style>
+        form{
+            border: 1px solid grey;
+            padding: 20px;
+            margin: 40px auto;
+            width: 40%;
+
+        }
+        form input{
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>New Profile</h1>
+    <form action="/new-profile" method="post" enctype="multipart/form-data">
+        <input type="text" name="fullname" id="" placeholder="Full Name">
+        <br>
+        <input type="email" name="email" id="" placeholder="Email">
+        <br>
+        <input type="file" name="profileimage" id="" placeholder="Profile Image">
+        <br>
+        <input type="text" name="bio" id="" placeholder="About text">
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
