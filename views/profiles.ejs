@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profiles</title>
     <style>
+        .profiles{
+            display: flex;
+        }
         .card{
             width: 250px;
             padding: 10px;
@@ -20,14 +23,17 @@
     </style>
 </head>
 <body>
-    Profiles
-    <%locals.profiles.forEach(profile=>{%>
-    <div class="card">
-        <img src="" alt="" min-width="200px">
-        <p><%=profile.fullName%></p>
-        <p><%=profile.email%></p>
-        <p>bio</p>
+    <%- include('partials/nav.ejs')%>
+    <h1 style="text-align:center">Profiles</h1>
+    <div class="profiles">
+        <%locals.profiles.forEach(profile=>{%>
+        <div class="card">
+            <img src="images/profileImages/<%=profile.imageName%>" alt="<%=profile.imageOriginalName%>" min-width="200px">
+            <p><%=profile.fullName%></p>
+            <p><%=profile.email%></p>
+            <p>bio</p>
+        </div>
+        <%})%>
     </div>
-    <%})%>
 </body>
 </html>

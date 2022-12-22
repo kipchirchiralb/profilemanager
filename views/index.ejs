@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Manager</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         form{
             border: 1px solid grey;
@@ -24,6 +25,7 @@
 
 </head>
 <body>
+    <%- include('partials/nav.ejs')%>
     <h1>New Profile</h1>
     <form action="/new-profile" method="post" enctype="multipart/form-data">
         <input type="text" name="fullname" id="" placeholder="Full Name">

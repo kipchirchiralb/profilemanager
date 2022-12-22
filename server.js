@@ -1,9 +1,19 @@
 const express = require('express');
 const mysql = require('mysql');
 const multer = require('multer');
-const upload = multer({
-    dest: "profileImages/"
-})
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname,'/public/images/profileImages'))
+    },
+    filename: function (req, file, cb) {
+      const uniquePreffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, uniquePreffix + file.originalname)
+    }
+  })
+  
+  const upload = multer({ storage: storage })
 
 const app = express();
 const db = mysql.createConnection({
@@ -21,6 +31,8 @@ db.connect((error)=>{
 })
 
 app.set("view engine", "ejs")
+// app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
     res.render('index')
